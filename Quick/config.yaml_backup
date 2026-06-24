@@ -1,6 +1,6 @@
-secret: https://github.com/Alvin9999-newpac/fanqiang
+﻿secret: https://github.com/Alvin9999-newpac/fanqiang
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 log-level: info
 dns:
   enabled: true

@@ -87,6 +87,11 @@ goto startfq
 :startfq
 echo µ»¥˝ Quick ∆Ù∂Ø£¨«Î…‘∫Ú...
 
+echo ºÏ≤‚config
+if exist "%~dp0Quick\config.yaml" (
+	echo –ﬁ∏ƒ config
+    powershell -Command "(Get-Content '%~dp0Quick\config.yaml' -Encoding UTF8) -replace 'allow-lan: false', 'allow-lan: true' | Set-Content '%~dp0Quick\config.yaml' -Encoding UTF8"
+)
 rem ∑¿÷π÷ÿ∏¥∆Ù∂Ø
 tasklist /FI "IMAGENAME eq quick.exe" 2>nul | find /I "quick.exe" >nul
 if not errorlevel 1 (
@@ -95,8 +100,9 @@ if not errorlevel 1 (
   start "" /D "%~dp0Quick" "%~dp0Quick\quick.exe" -d "%~dp0Quick"
 )
 
-if exist "%~dp0App\chrome.exe" (
-  start "" /D "%~dp0App" "%~dp0App\chrome.exe" --proxy-server=127.0.0.1:7890
+echo µ»¥˝SSR∆Ù∂Ø£¨«Î…‘∫Ú...
+IF EXIST "C:\Program Files\Qoom Chrome\chrome.exe" (
+    start "" "C:\Program Files\Qoom Chrome\chrome.exe" --proxy-server="127.0.0.1:7890"
 )
 
 echo.
